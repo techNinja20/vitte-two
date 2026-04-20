@@ -1,0 +1,22 @@
+
+
+.card{
+
+    background-color: skyblue;
+    
+}
+
+.card-img{
+    display: flex;
+    justify-content: center;
+}
+
+.card-img img{
+    width: 20rem;
+    height: 30vh;
+    object-fit: contain;
+}
+
+.card-details{
+    padding: 1rem;
+}

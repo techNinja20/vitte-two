@@ -1,0 +1,16 @@
+.styled-table {
+  width: 100%;
+  border-spacing: 0;
+}
+.styled-table th {
+  background-color: skyblue;
+  font-size: 1rem;
+  color: white;
+  padding: 0.8rem 1rem;
+}
+
+.styled-table td {
+  text-align: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px dotted gray;
+}
