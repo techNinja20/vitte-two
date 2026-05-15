@@ -4,7 +4,7 @@ import tesla from "../assets/images/tesla.svg"
 import { RiMap2Fill } from "react-icons/ri"
 import { BsPeopleFill } from "react-icons/bs"
 import { FaTags } from "react-icons/fa"
-import { NavLink } from "react-router"
+import { NavLink, useLocation } from "react-router"
 import { allPaths } from "../routes/paths"
 
 const menuListOne = [
@@ -41,6 +41,13 @@ const menuListOne = [
 ]
 
 const DashboardLayout = ({ children }) => {
+  const { pathname } = useLocation()
+  const name = pathname.split("/")[1].toUpperCase()
+
+  
+
+
+
   return (
     <div className="min-h-screen flex ">
       <div className=" p-4  ">
@@ -69,7 +76,7 @@ const DashboardLayout = ({ children }) => {
       </div>
 
       <div className="">
-        <div className="">Header</div>
+        <div className="">{name}</div>
         <div className="">{children}</div>
       </div>
     </div>
