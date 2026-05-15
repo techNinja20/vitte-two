@@ -3,11 +3,24 @@ import { Link } from "react-router"
 import { useCartContext } from "../context/CartContext"
 
 const CartPage = () => {
-  const { cart } = useCartContext()
+  const { cart, clearCart } = useCartContext()
+
+  const totalAmount = cart.reduce(
+    (prev, curr) => prev + curr.price * curr.quantity,
+    0,
+  )
+
+  console.log("totalAmount:", totalAmount)
 
   return (
     <div className="w-full bg-gray-300 min-h-screen w-full">
-      <div className="flex justify-end items-center p-8 relative">
+      <div className="flex justify-end items-center gap-4 p-8 relative">
+        <button
+          onClick={clearCart}
+          className="text-red-600 text-2xl font-medium "
+        >
+          Clear cart
+        </button>
         <Link to="/checkout" className="bg-gray-400 rounded-full p-2  ">
           <IoMdCart size={40} />
         </Link>
@@ -66,10 +79,9 @@ const CartPage = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-                      <h3 className="font-bold text-3xl">Your cart is empty</h3>
-                      
-                      <IoMdCart size={550} className="animate-bounce mt-16"  />
+          <h3 className="font-bold text-3xl">Your cart is empty</h3>
 
+          <IoMdCart size={550} className="animate-bounce mt-16" />
         </div>
       )}
     </div>
