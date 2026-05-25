@@ -1,7 +1,15 @@
 import { Link } from "react-router"
 import Rating from "./Rating"
 
-const ProductCard = ({ to, image, title, price, category, description }) => {
+const ProductCard = ({
+  to,
+  image,
+  title,
+  price,
+  category,
+  description,
+  rating,
+}) => {
   return (
     <Link to={to} className="w-full  shadow-2xs rounded-lg bg-white  ">
       <div className="w-full ">
@@ -23,6 +31,7 @@ const ProductCard = ({ to, image, title, price, category, description }) => {
             ? `${description?.slice(0, 180)}...`
             : description}
         </p>
+        <Rating rate={rating?.rate} />
       </div>
     </Link>
   )
