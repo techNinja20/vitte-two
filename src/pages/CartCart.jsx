@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 const productData = [
   {
@@ -27,8 +27,14 @@ const productData = [
   { id: 8, name: "iPhone 6", price: 50 },
 ]
 
-const Cart = () => {
+const CartCart = () => {
   const [cart, setCart] = useState([])
+
+  // const totalPrice = useMemo(() => {
+  //   return cart.reduce((prev, curr) => prev + curr.price * curr.quantity, 0)
+  // }, [cart])
+
+  // console.log("totalPrice:", totalPrice)
 
   function addTocart(product) {
     const ifExists = cart.find((el) => el.id === product.id)
@@ -64,13 +70,18 @@ const Cart = () => {
               onClick={() => addTocart(el)}
               className="bg-orange-500 rounded-md text-white py-2 px-4 "
             >
-                    Add to Cart 
+              Add to Cart
             </button>
           </div>
         ))}
       </div>
 
-      <h1 className="text-3xl font-semibold text-center mt-6">Cart <span className="w-4 h-4 p-4 text-[12px] text-red-500 bg-gray-300 rounded-full ">{cart.length}</span></h1>
+      <h1 className="text-3xl font-semibold text-center mt-6">
+        Cart{" "}
+        <span className="w-4 h-4 p-4 text-[12px] text-red-500 bg-gray-300 rounded-full ">
+          {cart.length}
+        </span>
+      </h1>
 
       <div className="flex gap-4 items-center">
         {cart.length > 0 ? (
@@ -95,4 +106,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default CartCart
